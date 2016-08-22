@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>marginMerge</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.wrap {
+			margin: 20px;
+		}
+		p {
+			margin: 20px;
+		}
+		.inlineB{
+			display: inline-block;
+		}
+		.inline {
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<p class="inline">margin-top和margin-bottom对inline元素无效，除了可替换元素。</p>
+
+	<p>可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类外观渲染（user agent stylesheet）独立于CSS的外部对象。 典型的可替换元素有 &lt;img&gt;、 &lt;object&gt;、 &lt;video&gt; 和 表单元素，如&lt;textarea&gt;、 &lt;input&gt; 。 某些元素只在一些特殊情况下表现为可替换元素，例如 &lt;audio&gt; 和 &lt;canvas&gt; 。 通过 CSS content 属性来插入的对象被称作匿名可替换元素（anonymous replaced elements）。</p>
+
+	<input style="margin: 20px;">
+	
+
+	<!-- 毗邻的兄弟元素的外边距会塌陷 -->
+	<p>块元素下外边距被合并</p>
+	<p>块元素上外边距被合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
+	
+	
+	<div class="wrap">
+		<p>块元素没有 border、padding，它的 margin-top 与它的第一个子元素的margin-top 合并</p>
+		<p>块元素没有 border、padding，它的 margin-bottom 与它的最后一个子元素的margin-bottom 合并</p>
+	</div>
+	<div>
+		<p>第一个子元素的margin-top会顶开父元素与父元素相邻元素的间距（合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者，即使一方为0也会发生合并）</p>
+		<p>最后一个子元素的margin-bottom会顶开父元素与父元素相邻元素的间距（合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者，即使一方为0也会发生合并）</p>
+	</div>
+	<div>如果块元素没有 border、padding、height，那么它的上下外边距将会合并</div>
+	<div class="wrap"></div>
+</body>
+</html>
