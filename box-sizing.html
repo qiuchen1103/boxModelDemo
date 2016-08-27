@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<head>
+	<title>boxModelDemo</title>
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+		.wrap{
+			width: 1200px;
+			border: 1px solid #000;
+			margin: 10px auto;
+		}
+
+		/*box-sizing*/
+			.content-box{
+				margin: 10px 0;
+				box-sizing: content-box;
+				width: 500px;
+				padding: 50px;
+				border: 5px solid blue;
+			}
+			.border-box{
+				margin: 10px 0;
+				box-sizing: border-box;
+				width: 500px;
+				padding: 50px;
+				border: 5px solid blue;
+			}
+		/*box-sizing*/
+
+		/*neg-margin*/
+			.mwrap {
+				display: inline-block;
+				/*padding: 10px;*/
+				border: 5px dotted red;
+				margin: 10px;
+			}
+			.initial,.neg1,.neg2,.neg3,.neg4{
+				background-color: blue;
+				width: 300px;
+				height: 100px;
+			}
+			.neg1{
+				margin-top: -10px;
+			}
+			.neg2{
+				margin-right: -10px;
+			}
+			.neg3{
+				margin-bottom: -10px;
+			}
+			.neg4{
+				margin-left: -10px;
+			}
+		/*neg-margin*/
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h3>box-sizing属性</h3>
+		<div class="content-box">content-box(initial)</div>
+		<div class="border-box">border-box</div>
+	</div>
+
+	<div class="wrap">
+		<h3>负margin</h3>
+		<div class="mwrap">
+			<div class="initial">我没有margin</div>
+		</div><br>
+		<div class="mwrap">
+			<div class="neg1">我有margin-top：-10px</div>
+		</div><br>
+		<div class="mwrap">
+			<div class="neg2">我有margin-right：-10px</div>
+		</div><br>
+		<div class="mwrap">
+			<div class="neg3">我有margin-bottom：-10px</div>
+		</div><br>
+		<div class="mwrap">
+			<div class="neg4">我有margin-left：-10px</div>
+		</div>
+			
+	</div>
+	
+</body>
+</html>
