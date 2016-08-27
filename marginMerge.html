@@ -10,9 +10,15 @@
 		}
 		.wrap {
 			margin: 20px;
+			background-color: red;
+		}
+		.no-wrap {
+			margin: 0 20px;
+			background-color: red;
 		}
 		p {
 			margin: 20px;
+			background-color: yellow;
 		}
 		.inlineB{
 			display: inline-block;
@@ -23,39 +29,38 @@
 	</style>
 </head>
 <body>
-	<p class="inline">margin-top和margin-bottom对inline元素无效，除了可替换元素。</p>
 
-	<p>可替换元素（replaced element）的展现不是由CSS来控制的。这些元素是一类外观渲染（user agent stylesheet）独立于CSS的外部对象。 典型的可替换元素有 &lt;img&gt;、 &lt;object&gt;、 &lt;video&gt; 和 表单元素，如&lt;textarea&gt;、 &lt;input&gt; 。 某些元素只在一些特殊情况下表现为可替换元素，例如 &lt;audio&gt; 和 &lt;canvas&gt; 。 通过 CSS content 属性来插入的对象被称作匿名可替换元素（anonymous replaced elements）。</p>
-
-	<input style="margin: 20px;">
+	<span style="margin: 20px;">(我是inline元素)margin-top和margin-bottom对行内元素无效，除了可替换元素。</span>
+	<img style="margin: 20px;" src="http://img4.imgtn.bdimg.com/it/u=21385237,1665284751&fm=21&gp=0.jpg">
 	
 
-	<!-- 毗邻的兄弟元素的外边距会塌陷 -->
-	<p>块元素下外边距被合并</p>
-	<p>块元素上外边距被合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	<p class="inlineB">inline-block元素不会被合并，左右边距不会发生合并</p>
-	
-	
+	<p>(我是block元素)块元素下外边距被合并</p>
+	<p>(我是block元素)块元素上外边距被合并</p>
+
+
+	<p class="inlineB">(我是inline-block元素)inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">(我是inline-block元素)inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">(我是inline-block元素)inline-block元素不会被合并，左右边距不会发生合并</p>
+	<p class="inlineB">(我是inline-block元素)inline-block元素不会被合并，左右边距不会发生合并</p>
+
+
+	<p>**(我是block元素)**块元素发生合并的几种情况**</p>
+
+	<!-- (我是有上下margin的block父元素) -->	
 	<div class="wrap">
-		<p>块元素没有 border、padding，它的 margin-top 与它的第一个子元素的margin-top 合并</p>
-		<p>块元素没有 border、padding，它的 margin-bottom 与它的最后一个子元素的margin-bottom 合并</p>
+		<p>(我是block子元素)父块元素没有 border、padding，它的 margin-top 与它的第一个子元素的margin-top 合并</p>
+		<p>(我是block子元素)父块元素没有 border、padding，它的 margin-bottom 与它的最后一个子元素的margin-bottom 合并</p>
 	</div>
-	<div>
+
+	<!-- (我是没有上下margin的block父元素) -->
+	<div class="no-wrap">
 		<p>第一个子元素的margin-top会顶开父元素与父元素相邻元素的间距（合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者，即使一方为0也会发生合并）</p>
 		<p>最后一个子元素的margin-bottom会顶开父元素与父元素相邻元素的间距（合并后的外边距的高度等于两个发生合并的外边距的高度中的较大者，即使一方为0也会发生合并）</p>
 	</div>
-	<div>如果块元素没有 border、padding、height，那么它的上下外边距将会合并</div>
+
+
+	<span style="margin: 20px;">(我是inline元素)如果块元素没有内容、 border、padding、height，那么它自己的上下外边距将会合并↓↓↓</span>
 	<div class="wrap"></div>
+
 </body>
 </html>
