@@ -59,8 +59,9 @@
 	</div>
 
 
-	<span style="margin: 20px;">(我是inline元素)如果块元素没有内容、 border、padding、height，那么它自己的上下外边距将会合并↓↓↓</span>
-	<div class="wrap"></div>
+	<div class="wrap" style="float: left;">(我是浮动的block元素)浮动和绝对定位的块元素不会合并</div>
+	<div class="wrap" style="position: absolute; top:0px; right:0px;">(我是绝对定位的block元素)浮动和绝对定位的块元素不会合并</div>
+
 
 </body>
 </html>
